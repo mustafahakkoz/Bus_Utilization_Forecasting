@@ -6,7 +6,7 @@
 
 - testing dataset ( last 2 weeks of 10 in training set can be used as test data)
 
-<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/data.png" alt="" height="300">
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/data.png" alt="" height="150">
 
 Implementation details can be found in the notebook.
 
@@ -23,7 +23,7 @@ Implementation details can be found in the notebook.
 [**piworks-busutilizationforecasting.ipynb**](https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/piworks-busutilizationforecasting.ipynb)
 
 - Missing values, seasonalities and trends are examined to choose a proper municipality.  
-<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/muns.png" alt="" height="300">
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/muns.png" alt="" height="200">
 
 - An advanced feature engineering step is implemented by creating 50 new features based on a single univarite data.  
   **Date-related features:** month, day, week_of_year, weekday.  
@@ -39,7 +39,7 @@ Implementation details can be found in the notebook.
   **Indices of significant points:** Significant points of short-term (1-day) past window is found. argmax, argmin, difference of both and fourier versions of them are calculated.
 
 - 2 regression models with these features including tuning steps (Ridge and XGBoost regressors) are implemented.  
-<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/ridge.png" alt="" height="300">
+  <img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/ridge.png" alt="" height="300">
 
 - 2 statistical models SARIMAX (with gridsearch) and Prophet is implemented.
 
@@ -49,7 +49,7 @@ Implementation details can be found in the notebook.
 
 #### Notes:
 
-<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/results.png" alt="" height="300">
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/results.png" alt="" height="150">
 
 - Best score is the baseline model Ridge Regressor since we did heavy feature engineering and it works very well. It is possible to improve this model with handling overfitting by dimensionality reduction.
 
