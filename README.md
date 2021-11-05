@@ -6,6 +6,8 @@
 
 - testing dataset ( last 2 weeks of 10 in training set can be used as test data)
 
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/data.png" alt="" height="300">
+
 Implementation details can be found in the notebook.
 
 ---
@@ -18,20 +20,26 @@ Implementation details can be found in the notebook.
 
 #### Repo Content and Implementation Steps:
 
-[**piworks-busutilizationforecasting.ipynb**](https://github.com/mustafahakkoz/Predict_IPP_Contribution/blob/main/1.garanti-eda-preprocessing.ipynb)
+[**piworks-busutilizationforecasting.ipynb**](https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/piworks-busutilizationforecasting.ipynb)
 
-- Missing values, seasonalities and trends are examined to choose a proper municipality.
+- Missing values, seasonalities and trends are examined to choose a proper municipality.  
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/muns.png" alt="" height="300">
 
-- An advanced feature engineering step is implemented by creating 50 new features based on a single univarite data.
-  **Date-related features:** month, day, week_of_year, weekday.
-  **Features based on adjacency:** hour-to-hour, day-to-day, week-to-week differences including percentage change.
-  **Crossover strategy:** 18-ewm (represents daily sequences) 96-ewm (represents weekly sequences), difference of both and markings on crossover points to represent buy/sell decisions.
-  **Bollinger bands:** 18-sma (simple moving average) and +- 2*std is calculated to represent upper and lower bands. Also outlier points are detected to represent enter/exit decisions.
-  **Features based on time window:** Statistical measures on previous 18 timestamps are calculated. avg absolute diff, min, max, max-min diff, median, median of differences, interquartile range, values above mean, number of peaks, skewness, kurtosis, energy (average of squares).
-  **Fourier Features of time window:** 12 Statistical measures defined above is calculated on frequency domain of 18-sma sequences.
+- An advanced feature engineering step is implemented by creating 50 new features based on a single univarite data.  
+  **Date-related features:** month, day, week_of_year, weekday.  
+  **Features based on adjacency:** hour-to-hour, day-to-day, week-to-week differences including percentage change.  
+  **Crossover strategy:** 18-ewm (represents daily sequences) 96-ewm (represents weekly sequences), difference of both and markings on crossover points to represent buy/sell decisions.  
+  <img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/crossover.png" alt="" height="300">
+
+  **Bollinger bands:** 18-sma (simple moving average) and +- 2*std is calculated to represent upper and lower bands. Also outlier points are detected to represent enter/exit decisions.  
+  <img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/bollinger.png" alt="" height="300">
+
+  **Features based on time window:** Statistical measures on previous 18 timestamps are calculated. avg absolute diff, min, max, max-min diff, median, median of differences, interquartile range, values above mean, number of peaks, skewness, kurtosis, energy (average of squares).  
+  **Fourier Features of time window:** 12 Statistical measures defined above is calculated on frequency domain of 18-sma sequences.  
   **Indices of significant points:** Significant points of short-term (1-day) past window is found. argmax, argmin, difference of both and fourier versions of them are calculated.
 
-- 2 regression models with these features including tuning steps (Ridge and XGBoost regressors) are implemented.
+- 2 regression models with these features including tuning steps (Ridge and XGBoost regressors) are implemented.  
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/ridge.png" alt="" height="300">
 
 - 2 statistical models SARIMAX (with gridsearch) and Prophet is implemented.
 
@@ -40,6 +48,8 @@ Implementation details can be found in the notebook.
 ---
 
 #### Notes:
+
+<img title="" src="https://github.com/mustafahakkoz/Bus_Utilization_Forecasting/blob/main/images/results.png" alt="" height="300">
 
 - Best score is the baseline model Ridge Regressor since we did heavy feature engineering and it works very well. It is possible to improve this model with handling overfitting by dimensionality reduction.
 
